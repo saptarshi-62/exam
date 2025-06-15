@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam List</title>
+</head>
+<body>
+    <h1>Exam List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exam in exams %}
+            <tr>
+                <td>{{ exam.course.name }}</td>  # Assuming Course has a 'name' field
+                <td>{{ exam.exam_date }}</td>
+                <td>{{ exam.exam_time }}</td>
+                <td>{{ exam.duration }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

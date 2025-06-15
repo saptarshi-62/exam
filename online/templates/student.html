@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style9.css' %}">
+    <title>Check_Saq</title>
+</head>
+<body>
+    <div class="container">
+
+        <h2>Exam Results</h2>
+
+        <table>
+            <tr>
+                <th>Question</th>
+                <th>Student Answer</th>
+                <th>Full Marks</th>
+                <th>Obtained Marks</th>
+            </tr>
+            {% for response in q %}
+            <tr>
+                <td>{{ response.Question }}</td>
+                <td>{{ response.answer}}</td>
+                <td>{{ response.Mark }}</td>
+                <td>{{ response.Obtained_Mark }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Total Score: {{ total_score }}%</h2>
+        <h2>Grade: {{grade}}</h2>
+        <form action="../login">
+            <button type="submit" style=" width: 100%; padding: 10px; border: none; border-radius: 4px; background-color: cyan; color: black; font-size: 16px; cursor: pointer; margin-bottom: 10px; transition: background-color 0.3s, transform 0.2s; justify-content: center; align-items: center;">Back to Login</button>
+        </form>
+    </div>
+</body>
+</html>

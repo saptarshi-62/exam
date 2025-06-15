@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course_input</title>
+</head>
+<body>
+    <h1>Enter Course Deatails Here</h1>
+    <form action="course_input" method="post">
+        {% csrf_token %}
+            <label>Course_name</label>
+            <input type="text" name="course_name">
+            <label>Course_code</label>
+            <input type="text" name="course_code">
+            <input type="submit">
+    </form>
+</body>
+</html>

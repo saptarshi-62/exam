@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="{% static 'style5.css' %}">  
+    <title>Exam Portal</title>  
+</head>  
+<body>  
+    <header>  
+        <nav>  
+            <ul>  
+                <li><a href="login">Home</a></li>    
+                <li><a href="leaderboard">Leaderboard</a></li>  
+                <li><a href="logout">Log Out</a></li>  
+            </ul>  
+        </nav>  
+    </header>  
+    <main>  
+        <h2>Select Your Course</h2>  
+        <form action="../theory_paper/{{student_id}}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="student_id" value="{{ student_id }}">
+            <label for="course">Course Options are here:</label>
+            <select name="course">
+                {% for course in courses %}
+                    <option value="{{ course.id }}">{{ course.course_code }}, {{ course.course_name }}</option>
+                {% endfor %}
+            </select>
+            <label for="semester">Semester Options are here:</label>
+            <select name="semester">
+                {% for semester in semesters %}
+                    <option value="{{ semester.id }}">{{ semester.semester }}</option>
+                {% endfor %}
+            </select>
+            <label for="exam-type">Select Exam Type:</label>
+            <select name="exam-type" id="exam-type">
+                <option value="theory">Theory</option>
+                <option value="mcq">MCQ</option>
+            </select>
+            <button type="submit">Search Exam</button>
+        </form>
+        <button><a href="view_results/{{student_id}}">Obtain Marks</a></button>
+    </main>  
+</body>  
+</html>

@@ -1,0 +1,74 @@
+{% load static %}  
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="{% static 'style3.css' %}">  
+    <title>Online Examination System Management</title>  
+    <style>  
+        #timer {  
+            font-size: 24px;  
+            color: red;  
+            margin-bottom: 20px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <header>  
+            <h1>Online Examination System Management</h1>  
+            <nav>  
+                <ul>  
+                    <li><a href="admin">Panel</a></li>  
+                    <li><a href="../leaderboard">Leaderboard</a></li>  
+                    <li><a href="../logout">Log Out</a></li>  
+                </ul>  
+            </nav>  
+        </header>  
+        <main>  
+            <div id="timer">Time Remaining: <span id="time">00:00</span></div>  
+            <form action="../submit_answers/{{student_id}}" method="post" id="theoryForm">  
+                {% csrf_token %}  
+                <input type="hidden" name="student_id" value="{{ student_id }}">  
+                {% for question in q %}  
+                    <div class="question">  
+                        <fieldset>  
+                            <legend>Question {{ forloop.counter }}</legend>  
+                            <p>{{ question.Question }}</p>  
+                            <input type="hidden" name="question_ids[]" value="{{ question.id }}">  
+                            <input type="hidden" name="questions[]" value="{{ question.Question }}">  
+                            <input type="hidden" name="marks[]" value="{{ question.Mark }}">  
+                            <textarea name="answer_{{ question.id }}" rows="4" cols="50" required></textarea>  
+                        </fieldset>  
+                    </div>  
+                {% endfor %}  
+                <button type="submit">Submit</button>  
+            </form>  
+        </main>  
+    </div>  
+
+    <script>  
+        // Set timer duration in minutes  
+        const timerDuration = 30; // Set to your desired time in minutes  
+        let timeRemaining = timerDuration * 60; // Convert to seconds  
+
+        const timerDisplay = document.getElementById('time');  
+
+        function updateTimer() {  
+            const minutes = Math.floor(timeRemaining / 60);  
+            const seconds = timeRemaining % 60;  
+
+            timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;  
+
+            if (timeRemaining <= 0) {  
+                clearInterval(timerInterval);  
+                document.getElementById('theoryForm').submit(); // Submit the form when time is up  
+            }  
+            timeRemaining--;  
+        }  
+
+        const timerInterval = setInterval(updateTimer, 1000);  
+    </script>  
+</body>  
+</html>

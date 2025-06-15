@@ -1,0 +1,146 @@
+/* style3.css */  
+
+/* General Reset */  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+
+body {  
+    font-family: 'Arial', sans-serif;  
+    background-color: #f4f7fa;  
+    color: #333;  
+}  
+
+/* Container */  
+.container {  
+    max-width: 1200px;  
+    margin: 20px auto;  
+    padding: 20px;  
+    border-radius: 8px;  
+    background-color: #ffffff;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+}  
+
+
+/* Header */  
+header {  
+    text-align: center;  
+    margin-bottom: 20px;  
+}  
+
+h1 {  
+    font-size: 2.5em;  
+    margin-bottom: 10px;  
+    color: #333;  
+}  
+
+/* Navigation */  
+nav ul {  
+    list-style-type: none;  
+    padding: 0;  
+}  
+
+nav ul li {  
+    display: inline-block;  
+    margin: 0 15px;  
+}  
+
+nav ul li a {  
+    text-decoration: none;  
+    color: #007bff;  
+    transition: color 0.3s;  
+}  
+
+nav ul li a:hover {  
+    color: #0056b3;  
+}  
+
+/* Main */  
+main {  
+    padding: 20px;  
+}  
+
+/* Form Styles */  
+form {  
+    display: flex;  
+    flex-direction: column;  
+}  
+form p {
+    padding-top: 30px;
+}
+
+label {  
+    margin-bottom: 5px;  
+    font-weight: bold;  
+}  
+
+select, textarea {  
+    margin-bottom: 15px;  
+    padding: 10px;  
+    border: 1px solid #ccc;  
+    border-radius: 4px;  
+    resize: vertical; /* Allow the textarea to resize vertically */  
+}  
+
+input[type="submit"] {  
+    background-color: #28a745;  
+    color: #fff;  
+    padding: 10px;  
+    border: none;  
+    border-radius: 4px;  
+    cursor: pointer;  
+    transition: background-color 0.3s;  
+}  
+
+input[type="submit"]:hover {  
+    background-color: #218838;  
+}  
+
+/* Button Styles */  
+.controls {  
+    display: flex;  
+    gap: 10px;  
+    margin-top: 20px;  
+}  
+
+button {  
+    background-color: #007bff;  
+    color: #fff;  
+    padding: 10px;  
+    border: none;  
+    border-radius: 4px;  
+    cursor: pointer;  
+    flex-grow: 1;  
+    transition: background-color 0.3s;  
+}  
+
+button:hover {  
+    background-color: #0056b3;  
+}  
+
+button a {  
+    text-decoration: none;  
+    color: white;  
+}  
+
+/* Responsive Styles */  
+@media (max-width: 768px) {  
+    nav ul {  
+        display: flex;  
+        flex-direction: column;  
+    }  
+
+    nav ul li {  
+        margin: 10px 0;  
+    }  
+
+    .controls {  
+        flex-direction: column;  
+    }  
+
+    button {  
+        width: 100%;  
+    }  
+}

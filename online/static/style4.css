@@ -1,0 +1,125 @@
+/* style4.css */  
+
+/* General Reset */  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+
+body {  
+    font-family: 'Arial', sans-serif;  
+    background-color: #f0f4f8;  
+    color: #333;  
+}  
+
+/* Header */  
+header {  
+    text-align: center;  
+    padding: 20px;  
+    background-color: #007bff;  
+    color: white;  
+}  
+
+header h1 {  
+    font-size: 2.5em;  
+    margin-bottom: 10px;  
+}  
+
+/* Main */  
+main {  
+    max-width: 1000px;  
+    margin: 20px auto;  
+    padding: 20px;  
+    border-radius: 8px;  
+    background-color: #ffffff;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+}  
+
+/* Table Styles */  
+table {  
+    width: 100%;  
+    border-collapse: collapse;  
+    margin-bottom: 20px;  
+}  
+
+th, td {  
+    padding: 10px;  
+    text-align: left;  
+    border-bottom: 1px solid #ddd;  
+}  
+
+th {  
+    background-color: #f4f4f4;  
+}  
+
+select {  
+    width: 100%;  
+    padding: 10px;  
+    border: 1px solid #ccc;  
+    border-radius: 4px;  
+    background-color: #fff;  
+    cursor: pointer;  
+    font-size: 16px;  
+}  
+
+/* Button Styles */  
+button {  
+    background-color: #28a745;  
+    color: white;  
+    padding: 10px 15px;  
+    border: none;  
+    border-radius: 4px;  
+    cursor: pointer;  
+    font-size: 16px;  
+    transition: background-color 0.3s ease;  
+    width: 100%; /* Make button full width */  
+}  
+
+button:hover {  
+    background-color: #218838;  
+}  
+
+/* Responsive Styles */  
+@media (max-width: 768px) {  
+    /* Stack table rows for smaller screens */  
+    table {  
+        display: block;  
+        overflow-x: auto;  
+        white-space: nowrap;  
+    }  
+
+    table, th, td {  
+        display: block;  
+        width: 100%;  
+    }  
+
+    th {  
+        display: none; /* Hide headers on small screens */  
+    }  
+
+    tr {  
+        border: 1px solid #ddd;  
+        margin-bottom: 20px;  
+    }  
+
+    td {  
+        text-align: right;  
+        position: relative;  
+        padding-left: 50%;  
+    }  
+
+    td::before {  
+        content: attr(data-label); /* Use data-label for responsive display */  
+        position: absolute;  
+        left: 10px;  
+        width: calc(50% - 20px);  
+        padding-right: 10px;  
+        text-align: left;  
+        font-weight: bold;  
+    }  
+
+    button {  
+        width: auto; /* Allow button to adjust width */  
+    }  
+}

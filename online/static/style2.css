@@ -1,0 +1,157 @@
+/* Base Resets */  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+
+/* Body Styling */  
+body {  
+    font-family: 'Arial', sans-serif;  
+    background-color: #f7f9fc;  
+    color: #333;  
+}  
+
+/* Container */  
+.container {  
+    max-width: 1200px;  
+    margin: 0 auto;  
+    padding: 20px;  
+}  
+
+/* Header Styling */  
+header {  
+    background-color: #4CAF50;  
+    color: white;  
+    padding: 20px;  
+    text-align: center;  
+}  
+
+header h1 {  
+    font-size: 2.5em;  
+    margin-bottom: 10px;  
+}  
+
+nav ul {  
+    list-style: none;  
+    display: flex;  
+    justify-content: center;  
+    gap: 20px;  
+    flex-wrap: wrap;  
+}  
+
+nav ul li {  
+    display: inline;  
+}  
+
+nav ul li a {  
+    color: white;  
+    text-decoration: none;  
+    font-weight: bold;  
+    transition: color 0.3s;  
+}  
+
+nav ul li a:hover {  
+    color: #cce8cc;  
+}  
+
+/* Main Section Styling */  
+main {  
+    background: white;  
+    border-radius: 8px;  
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
+    padding: 20px;  
+    margin-top: 20px;  
+}  
+
+/* Form Styling */  
+form {  
+    display: flex;  
+    flex-direction: column;  
+    gap: 15px; /* Spacing between form elements */  
+}  
+
+label {  
+    font-weight: bold;  
+    margin-bottom: 5px;  
+}  
+
+input[type="text"],  
+select {  
+    padding: 10px;  
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
+    font-size: 1em;  
+}  
+
+input[type="text"]:focus,  
+select:focus {  
+    border-color: #4CAF50;  
+    outline: none;  
+}  
+
+/* Button Styling */  
+.buttons {  
+    display: flex;  
+    justify-content: space-between;  
+    margin-top: 20px;  
+}  
+
+button {  
+    padding: 10px 15px;  
+    border: none;  
+    border-radius: 5px;  
+    background-color: #4CAF50;  
+    color: white;  
+    font-size: 1em;  
+    cursor: pointer;  
+    transition: background-color 0.3s;  
+}  
+
+button:hover {  
+    background-color: #45a049;  
+}  
+
+/* Responsive Design */  
+@media (max-width: 768px) {  
+    nav ul {  
+        flex-direction: column;  
+        align-items: center;  
+        gap: 5px;  
+    }  
+
+    header h1 {  
+        font-size: 2em; /* Smaller header on mobile */  
+    }  
+
+    input[type="text"],  
+    select {  
+        font-size: 0.9em; /* Smaller input text on mobile */  
+    }  
+
+    button {  
+        width: 100%;  
+        margin-bottom: 10px; /* Spacing between buttons */  
+    }  
+}  
+
+@media (max-width: 480px) {  
+    header h1 {  
+        font-size: 1.5em; /* Smaller header on very small devices */  
+    }  
+
+    label {  
+        font-size: 0.9em; /* Smaller label text on mobile */  
+    }  
+
+    input[type="text"],  
+    select {  
+        font-size: 0.8em; /* Smaller input text on small devices */  
+        padding: 8px; /* Smaller padding */  
+    }  
+
+    button {  
+        padding: 8px;  
+        font-size: 0.9em; /* Smaller button text for mobile */  
+    }  
+}

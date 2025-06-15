@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="{% static 'style2.css' %}">  
+    <title>Online Examination System Management</title>  
+</head>  
+<body>  
+    <div class="container">  
+        <header>  
+            <h1>Online Examination System Management</h1>  
+            <nav>  
+                <ul>  
+                    <li><a href="admin">Panel</a></li>  
+                    <li><a href="leaderboard">Leaderboard</a></li>  
+                    <li><a href="logout">Log out</a></li>  
+                </ul>  
+            </nav>  
+        </header>  
+        <main>  
+            <form action="../set_mcq" method="post">
+                {% csrf_token %}
+                <label for="year">Year:</label>
+                <select name="year">  
+                    {% for i in a %}
+                        <option value="{{i.id}}">{{i.year}}</option>  
+                    {% endfor %}
+                </select>
+                <label for="semester">Semester:</label>
+                <select name="semester">  
+                    {% for j in d %}
+                        <option value="{{j.id}}">{{j.semester}}</option>  
+                    {% endfor %}
+                </select>
+                <label for="course">Course ID:</label>
+                <select name="course">
+                    {% for k in b %}   
+                        <option value="{{k.id}}">{{k.course_code}},{{k.course_name}}</option>  
+                    {% endfor %}
+                </select>
+
+                <label for="question">Question:</label>  
+                <input type="text" id="question" name="question" placeholder="Enter your question here">  
+
+                <label for="answer">Answer:</label>  
+                <input type="text" id="answer" name="answer" placeholder="Enter the answer here">  
+
+                <label for="option1">Option 1:</label>  
+                <input type="text" id="option1" name="option1">  
+
+                <label for="option2">Option 2:</label>  
+                <input type="text" id="option2" name="option2">  
+
+                <label for="option3">Option 3:</label>  
+                <input type="text" id="option3" name="option3">  
+
+                <label for="option4">Option 4:</label>  
+                <input type="text" id="option4" name="option4">   
+
+                <label for="question-no">Question No:</label>  
+                <input type="text" id="question-no" name="question-no">  
+
+                <input type="submit" value="save">
+
+                <div class="buttons">  
+                    <button type="button" class="clear">
+                        <a href="setmcq">Clear</a></button>  
+                    <button type="button" class="add">
+                        <a href="set_mcq">Add Question</a></button>  
+                    <button type="button" class="set">
+                        <a href="set_exam">Set Exam</a></button>  
+                </div>  
+            </form>  
+        </main>  
+    </div>  
+</body>  
+</html>

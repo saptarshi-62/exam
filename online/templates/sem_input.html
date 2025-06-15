@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sem_input</title>
+</head>
+<body>
+    <h1>Enter your details Here</h1>
+    <form action="sem_input" method="post">
+        {% csrf_token %}
+            <label>Semester</label>
+            <input type="text" name="semester">
+            <input type="submit">
+    </form>
+</body>
+</html>

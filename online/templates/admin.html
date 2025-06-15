@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="{% static 'style1.css' %}">  
+    <title>Online Examination System Management</title>  
+</head>  
+<body>  
+    <header>  
+        <h1>Online Examination System Management</h1>  
+        <nav>  
+            <ul>     
+                <li><a href="leaderboard">Leaderboard</a></li>  
+                <li><a href="logout">Log Out</a></li>  
+            </ul>  
+        </nav>  
+    </header>  
+    <main>  
+        <h2>Welcome To Admin Panel</h2>  
+        <div class="button-container">  
+            <button><a href="setmcq">Set MCQ Exam</a></button>
+            <button><a href="settheory">Set Theory Exam</a></button>
+            <button><a href="editexam">Edit Exam</a></button>
+            <button><a href="viewexam">View Exam</a></button> 
+        </div>  
+    </main>  
+</body>  
+</html>

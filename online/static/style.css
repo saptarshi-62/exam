@@ -1,0 +1,125 @@
+/* Global Styles */  
+body {  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    margin: 0;  
+    padding: 0;  
+    background: linear-gradient(135deg, #e2efff, #c6e3ff);  
+}  
+
+/* Header Styles */  
+.header {  
+    background-color: #007BFF;  
+    color: white;  
+    text-align: center;  
+    padding: 20px;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
+}  
+
+/* Container Styles */  
+.container {  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height: calc(100vh - 100px);  
+    padding: 20px;  
+}  
+
+/* Login Box Styles */  
+.login-box {  
+    background-color: white;  
+    padding: 30px;  
+    border-radius: 8px;  
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  
+    width: 320px;  
+    transition: transform 0.3s, box-shadow 0.3s;  
+}  
+
+.login-box:hover {  
+    transform: translateY(-5px);  
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);  
+}  
+
+/* Input and Select Styles */  
+.login-box label {  
+    display: block;  
+    margin-bottom: 8px;  
+    color: #333;  
+}  
+
+.login-box input[type="text"],  
+.login-box input[type="password"],  
+.login-box select {  
+    width: 100%;  
+    padding: 12px;  
+    margin-bottom: 15px;  
+    border: 1px solid #ddd;  
+    border-radius: 4px;  
+    transition: border-color 0.3s, box-shadow 0.3s;  
+}  
+
+.login-box input[type="text"]:focus,  
+.login-box input[type="password"]:focus,  
+.login-box select:focus {  
+    border-color: #007BFF;  
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);  
+    outline: none;  
+}  
+
+/* Button Styles */  
+.login-box button {  
+    width: 100%;  
+    padding: 12px;  
+    border: none;  
+    border-radius: 4px;  
+    background-color: #007BFF;  
+    color: white;  
+    font-size: 16px;  
+    cursor: pointer;  
+    margin-bottom: 10px;  
+    transition: background-color 0.3s, transform 0.2s;  
+}  
+
+.login-box button:hover {  
+    background-color: #0056b3;  
+    transform: translateY(-2px);  
+}  
+
+/* Link Styles for Buttons */  
+.login-box button a {  
+    color: white;  
+    text-decoration: none;  
+}  
+
+/* Secondary Button Styles */  
+.signup-btn,  
+.forgot-btn,  
+.reset-btn {  
+    background: none;  
+    border: none;  
+    padding: 12px;  
+    color: #007BFF;  
+    font-size: 14px;  
+    cursor: pointer;  
+    transition: color 0.3s;  
+}  
+
+.signup-btn:hover,  
+.forgot-btn:hover,  
+.reset-btn:hover {  
+    color: #0056b3;  
+    text-decoration: underline;  
+}  
+
+/* Responsive Styles */  
+@media(max-width: 400px) {  
+    .login-box {  
+        width: 90%;  
+    }  
+    
+    .login-box button,  
+    .signup-btn,  
+    .forgot-btn,  
+    .reset-btn {  
+        font-size: 14px;  
+    }  
+}

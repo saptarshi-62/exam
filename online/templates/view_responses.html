@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style9.css' %}">
+    <title>View Responses</title>
+</head>
+<body>
+    <div class="container">
+
+        <h2>View Responses</h2>
+
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Username</th>
+                <th>Answer link</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.Name }}</td>
+                <td>{{ student.Username}}</td>
+                <td><a href="../view_student_exam/{{student.id}}">View answer</a></td>
+                
+            {% endfor %}
+        </table>
+
+        
+    </div>
+</body>
+</html>

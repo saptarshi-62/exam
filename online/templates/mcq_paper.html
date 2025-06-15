@@ -1,0 +1,68 @@
+{% load static %}  
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="{% static 'style2.css' %}">  
+    <title>MCQ Paper</title>  
+    <style>  
+        #timer {  
+            font-size: 24px;  
+            color: red;  
+            margin-bottom: 20px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <header>  
+            <h1>Online Examination System Management</h1>  
+            <nav>  
+                <ul>  
+                    <li><a href="admin">Panel</a></li>  
+                    <li><a href="leaderboard">Leaderboard</a></li>  
+                    <li><a href="logout">Log Out</a></li>  
+                </ul>  
+            </nav>  
+        </header>  
+        <main style="padding: 20px;">  
+            <div id="timer">Time Remaining: <span id="time">00:00</span></div>  
+            <form action="../check_mcq" method="post" id="mcqForm">  
+                {% csrf_token %}  
+                {% for i in a %}  
+                    <label for="question" style="padding-top: 20px;">{{i.Question}}</label>  
+                    <input type="radio" name="answer_{{i.id}}" value="{{i.Option1}}">{{i.Option1}}  
+                    <input type="radio" name="answer_{{i.id}}" value="{{i.Option2}}">{{i.Option2}}  
+                    <input type="radio" name="answer_{{i.id}}" value="{{i.Option3}}">{{i.Option3}}  
+                    <input type="radio" name="answer_{{i.id}}" value="{{i.Option4}}">{{i.Option4}}  
+                {% endfor %}  
+                <input type="submit">  
+            </form>  
+        </main>  
+    </div>  
+
+    <script>  
+        // Set timer duration in minutes  
+        const timerDuration = 30; // Set to your desired time in minutes  
+        let timeRemaining = timerDuration * 60; // Convert to seconds  
+
+        const timerDisplay = document.getElementById('time');  
+
+        function updateTimer() {  
+            const minutes = Math.floor(timeRemaining / 60);  
+            const seconds = timeRemaining % 60;  
+
+            timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;  
+
+            if (timeRemaining <= 0) {  
+                clearInterval(timerInterval);  
+                document.getElementById('mcqForm').submit(); // Submit the form when time is up  
+            }  
+            timeRemaining--;  
+        }  
+
+        const timerInterval = setInterval(updateTimer, 1000);  
+    </script>  
+</body>  
+</html>

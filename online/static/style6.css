@@ -1,0 +1,71 @@
+/* Reset default margin and padding */  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+
+body {  
+    font-family: Arial, sans-serif;  
+    background-color: #f4f7fa;  
+    color: #333;  
+}  
+
+/* Container Styling */  
+.container {  
+    max-width: 800px;  
+    margin: 50px auto;  
+    padding: 20px;  
+    background-color: #ffffff;  
+    border-radius: 10px;  
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);  
+    text-align: center;  
+}  
+
+h1 {  
+    font-size: 2.5em;  
+    margin-bottom: 20px;  
+    color: #007bff;  
+}  
+
+p {  
+    font-size: 1.25em;  
+    margin-bottom: 30px;  
+}  
+
+/* Warning Message */  
+#warning {  
+    display: none; /* Initially hidden */  
+    padding: 15px;  
+    background-color: #ffdd57;  
+    color: #333;  
+    border: 1px solid #ffc107;  
+    border-radius: 5px;  
+    margin-top: 20px;  
+    font-weight: bold;  
+}  
+
+/* Media Queries for Responsive Design */  
+@media (max-width: 768px) {  
+    h1 {  
+        font-size: 2em;  
+    }  
+
+    p {  
+        font-size: 1.1em;  
+    }  
+
+    .container {  
+        padding: 15px;  
+    }  
+}  
+
+@media (max-width: 480px) {  
+    h1 {  
+        font-size: 1.8em;  
+    }  
+
+    p {  
+        font-size: 1em;  
+    }  
+}

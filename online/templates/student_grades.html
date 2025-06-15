@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Responses</title>
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Online Examination System Management</h1>
+            <nav>
+                <ul>
+                    <li><a href="admin">Panel</a></li>
+                    <li><a href="leaderboard">Leaderboard</a></li>
+                    <li><a href="logout">Log Out</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Exam responses for {{ student.Name }}</h2>
+            <form method="post" action="{% url 'sr' student.id %}">
+                {% csrf_token %}
+                {% for response in responses %}
+                <div>
+                    <p><strong>Question:</strong> {{ response.Question }}</p>
+                    <p><strong>Answer:</strong> {{ response.answer }}</p>
+                    <p><strong>Max Mark:</strong> {{ response.Mark }}</p>
+                    <label for="grade_{{ response.id }}">Grade:</label>
+                    <input type="number" id="grade_{{ response.id }}" name="grade_{{ response.id }}" 
+                           value="{{ response.Obtained_Mark|default_if_none:'' }}" step="0.01" min="0" max="{{ response.Mark }}">
+                </div>
+                <hr>
+                {% endfor %}
+                <button type="submit">Submit Grades</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
